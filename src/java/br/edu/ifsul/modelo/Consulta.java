@@ -3,6 +3,9 @@ package br.edu.ifsul.modelo;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import javax.ejb.Stateless;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -18,7 +21,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author ubiratan
  */
 @XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
 public class Consulta implements Serializable{
     
     private String codigoServico;
@@ -39,8 +41,9 @@ public class Consulta implements Serializable{
     public Consulta(){
         
     }
-    public Consulta(String codServ, String cepDest, Double frete, Integer entrega){
+    public Consulta(String codServ,  String cepOr, String cepDest, Double frete, Integer entrega){
         this.codigoServico = codServ;
+        this.cepOrigem = cepOr;
         this.cepDestino = cepDest;
         this.frete = frete;
         this.prazoEntrega = entrega;
